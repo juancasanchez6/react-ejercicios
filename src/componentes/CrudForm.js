@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const initialForm = {
   name: "",
-  constellation: "",
+  team: "",
   id: null,
 };
 
@@ -47,7 +47,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
   return (
     <div>
-      <h3>{dataToEdit ? "Editar" : "Agregar"}</h3>
+      <h3>{dataToEdit ? "Editar jugador" : "Agregar jugador"}</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -58,12 +58,12 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
         />
         <input
           type="text"
-          name="constellation"
-          placeholder="Constelación"
+          name="team"
+          placeholder="Equipo"
           onChange={handleChange}
-          value={form.constellation}
+          value={form.team}
         />
-        <input type="submit" value="enviar" />
+        <input type="submit" value="Enviar" />
         <input type="reset" value="Limpiar" onClick={handleReset} />
       </form>
     </div>

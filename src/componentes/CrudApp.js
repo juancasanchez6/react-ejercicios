@@ -5,28 +5,28 @@ import CrudTable from "./CrudTable";
 const initialDb = [
   {
     id: 1,
-    name: "Seiya",
-    constellation: "Pegaso",
+    name: "Griezmann",
+    team: "Atlético de Madrid",
   },
   {
     id: 2,
-    name: "Shiryu",
-    constellation: "Dragón",
+    name: "Bellingham",
+    team: "Real Madrid",
   },
   {
     id: 3,
-    name: "Hyoga",
-    constellation: "Cisne",
+    name: "Koke",
+    team: "Atlético de Madrid",
   },
   {
     id: 4,
-    name: "Shun",
-    constellation: "Andrómeda",
+    name: "Pedri",
+    team: "F.C. Barcelona",
   },
   {
     id: 5,
-    name: "Ikki",
-    constellation: "Fénix",
+    name: "Oblak",
+    team: "Atlético de Madrid",
   },
 ];
 
@@ -61,17 +61,19 @@ const CrudApp = () => {
   return (
     <div>
       <h2>CRUD APP</h2>
-      <CrudForm
-        createData={createData}
-        updateData={updateData}
-        dataToEdit={dataToEdit}
-        setDataToEdit={setDataToEdit}
-      />
-      <CrudTable
-        data={db}
-        setDataToEdit={setDataToEdit}
-        deleteData={deleteData}
-      />
+      <article className="grid-1-2">
+        <CrudForm
+          createData={createData}
+          updateData={updateData}
+          dataToEdit={dataToEdit}
+          setDataToEdit={setDataToEdit}
+        />
+        <CrudTable
+          data={db}
+          setDataToEdit={setDataToEdit}
+          deleteData={deleteData}
+        />
+      </article>
     </div>
   );
 };
