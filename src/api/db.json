@@ -1,0 +1,29 @@
+{
+  "jugadores": [
+    {
+      "id": 1,
+      "name": "Griezmann",
+      "team": "Atlético de Madrid"
+    },
+    {
+      "id": 2,
+      "name": "Bellingham",
+      "team": "Real Madrid"
+    },
+    {
+      "id": 3,
+      "name": "Koke",
+      "team": "Atlético de Madrid"
+    },
+    {
+      "id": 4,
+      "name": "Pedri",
+      "team": "F.C. Barcelona"
+    },
+    {
+      "id": 5,
+      "name": "Oblak",
+      "team": "Atlético de Madrid"
+    }
+  ]
+}
