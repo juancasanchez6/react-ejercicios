@@ -10,14 +10,15 @@ const SongSearch = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSearch = (data) => {
-    console.log(data);
+    //console.log(data);
+    setSearch(data);
   };
 
   return (
     <div>
       <h2>SongSearch</h2>
       {loading && <Loader />}
-      <SongForm handleSearch={handleSearch}/>
+      <SongForm handleSearch={handleSearch} />
       <SongDetails search={search} lyric={lyric} bio={bio} />
     </div>
   );
