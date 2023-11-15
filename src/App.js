@@ -4,6 +4,8 @@ import "./App.css";
 import MovieList from "./componentes/MovieList";
 import MovieListHeading from "./componentes/MovieListHeading";
 import SearchBox from "./componentes/SearchBox";
+import AddFavourites from "./componentes/AddFavourites";
+import RemoveFavourites from "./componentes/RemoveFavourites";
 // import axios from "axios";
 // import YouTube from "react-youtube";
 // import CrudApp from "./componentes/CrudApp";
@@ -12,6 +14,7 @@ import SearchBox from "./componentes/SearchBox";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [favourites, setFavourites] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
   const getMovieRequest = async (searchValue) => {
@@ -29,14 +32,61 @@ function App() {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
+  // isFavourite = mklxcjvklsdjfg some
+
+  const addFavouriteMovie = (movie) => {
+    const isFavourite = favourites.some((m) => m.imdbID === movie.imdbID);
+    // if(isfavourite) -> te sales : newfavouritelist
+
+    if (!isFavourite) {
+      const newFavouriteList = [...favourites, movie];
+
+      setFavourites(newFavouriteList);
+    }
+  };
+
+  const removeFavouriteMovie = (movie) => {
+    const newFavouriteList = favourites.filter(
+      (m) => m.imdbID !== movie.imdbID
+    );
+
+    setFavourites(newFavouriteList);
+  };
+
+  const handleFavouritesClick = (movie) => {
+    const isFavourite = favourites.some((m) => m.imdbID === movie.imdbID);
+    if (isFavourite) {
+      removeFavouriteMovie(movie);
+    } else {
+      addFavouriteMovie(movie);
+    }
+  };
+
   return (
     <div className="container-fluid movie-app">
-      <div className="row d-flex align-items-center mt-4 mb-4">
-        <MovieListHeading heading="Movies" />
+      <div
+        className="row d-flex align-items-center mt-1 mb-1"
+        key={movies.imdbID}
+      >
+        <MovieListHeading heading="Películas" />
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
       </div>
       <div className="row">
-        <MovieList movies={movies} />
+        <MovieList
+          movies={movies}
+          handleFavouritesClick={handleFavouritesClick}
+          favouriteComponent={AddFavourites}
+        />
+      </div>
+      <div className="row d-flex align-items-center mt-1 mb-1">
+        <MovieListHeading heading="Favoritos" />
+      </div>
+      <div className="row">
+        <MovieList
+          movies={favourites}
+          handleFavouritesClick={handleFavouritesClick}
+          favouriteComponent={RemoveFavourites}
+        />
       </div>
 
       {/* <hr /> */}

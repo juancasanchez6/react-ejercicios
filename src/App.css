@@ -4,6 +4,42 @@ body {
 }
 
 .movie-app > .row {
+    padding: 2px;
     overflow-x: auto;
     flex-wrap: nowrap;
+}
+
+.image-container {
+    position: relative;
+    transition: transform 0.2s;
+    width: fit-content;
+    height: 300px;
+}
+
+.image-container:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.info-btn {
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    width: 100%;
+    height: 50px;
+    transition: 0.5s ease;
+    opacity: 0;
+    bottom: 0;
+    font-size: 15px;
+    padding: 20px;
+    align-items: center;
 }
