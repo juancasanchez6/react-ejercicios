@@ -32,16 +32,27 @@ function App() {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
-  // isFavourite = mklxcjvklsdjfg some
+  useEffect(() => {
+    const movieFavourites = JSON.parse(
+      localStorage.getItem("react-movie-app-favourites")
+    );
 
+    setFavourites(movieFavourites);
+  }, []);
+
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
+  };
+
+  // isFavourite = mklxcjvklsdjfg some
   const addFavouriteMovie = (movie) => {
     const isFavourite = favourites.some((m) => m.imdbID === movie.imdbID);
     // if(isfavourite) -> te sales : newfavouritelist
 
     if (!isFavourite) {
       const newFavouriteList = [...favourites, movie];
-
       setFavourites(newFavouriteList);
+      saveToLocalStorage(newFavouriteList);
     }
   };
 
@@ -51,6 +62,7 @@ function App() {
     );
 
     setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
   };
 
   const handleFavouritesClick = (movie) => {
