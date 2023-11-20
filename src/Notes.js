@@ -42,12 +42,7 @@ const Notes = () => {
 		}
 	}, []);
 
-	useEffect(() => {
-		localStorage.setItem(
-			'react-notes-app-data',
-			JSON.stringify(notes)
-		);
-	}, [notes]);
+	
 
   const addNote = (text) => {
     //console.log(text)
@@ -59,11 +54,19 @@ const Notes = () => {
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
+    localStorage.setItem(
+			'react-notes-app-data',
+			JSON.stringify(newNotes)
+		);
   };
 
   const deleteNote = (id) => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
+    localStorage.setItem(
+			'react-notes-app-data',
+			JSON.stringify(newNotes)
+		);
   };
 
   return (
