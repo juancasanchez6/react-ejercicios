@@ -11,21 +11,7 @@ const Notes = () => {
       text: "Esta es mi primera nota",
       date: "16/11/2023",
     },
-    {
-      id: nanoid(),
-      text: "Esta es mi segunda nota",
-      date: "17/11/2023",
-    },
-    {
-      id: nanoid(),
-      text: "Esta es mi tercera nota",
-      date: "18/11/2023",
-    },
-    {
-      id: nanoid(),
-      text: "Esta es mi cuarta nota",
-      date: "19/11/2023",
-    },
+   
   ]);
 
   const [searchText, setSearchText] = useState("");
